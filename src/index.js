@@ -16,6 +16,7 @@ import { CryptoDetails } from './components/CryptoDetails';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
+import { UnlockPage } from './pages/UnlockPage';
 // import 'primeflex/primeflex.css';
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
           {
             path:":coinId",
             element: <CryptoDetails />
+          },
+          {
+            path:"/wallet/unlock",
+            element: <UnlockPage />
           }
         ]
       },
