@@ -1,11 +1,15 @@
-import { createContext, useLayoutEffect, useState } from "react";
+import { createContext, useLayoutEffect, useState, useRef } from "react";
 import axios from 'axios';
+import { Toast } from 'primereact/toast';
+
 
 //context object
 export const TrendingContext = createContext({});
+
 //provider component
 
 export const TrendingProvider = ({children}) => {
+    const toastRef = useRef(null);
     const [trendData, setTrendData] = useState();
 
     const axiosInstance = axios.create({
@@ -13,6 +17,11 @@ export const TrendingProvider = ({children}) => {
             "Accept": "application/json",
         },
     });
+
+    const showToast = (severity, summary, detail) => {
+        toastRef.current?.show({ severity, summary, detail, life: 9000 });
+      };
+    
 
     const getTrendData = async () => {
         try {
@@ -23,6 +32,7 @@ export const TrendingProvider = ({children}) => {
 
             setTrendData(response.data.coins)
         } catch (error) {
+            showToast('error', 'Error', 'You have exceeded the maximum requests per minute from CoinGecko. Please wait!')
             console.log('error', error)
         }
     };
@@ -43,6 +53,7 @@ export const TrendingProvider = ({children}) => {
                 resetTrendingFunction,
             }
         }>
+            <Toast ref={toastRef} position="bottom-center" className='p-0 text-sm'/>
             {children}
         </TrendingContext.Provider>
     )

@@ -1,0 +1,1 @@
+export const walletConnectV2ProjectId = "935d9834a3864fd957d79eee9b789a02"

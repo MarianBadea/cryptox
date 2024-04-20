@@ -1,11 +1,14 @@
-import { createContext, useLayoutEffect, useState } from "react";
+import { createContext, useLayoutEffect, useState, useRef } from "react";
 import axios from 'axios';
+import { Toast } from 'primereact/toast';
 
 //context object
 export const CryptoContext = createContext({});
 //provider component
 
 export const CryptoProvider = ({children}) => {
+    const toastRef = useRef(null);
+
     const [cryptoData, setCryptoData] = useState();
     const [coinData, setCoinData] = useState();
     const [searchData, setSearchData] = useState();
@@ -17,13 +20,15 @@ export const CryptoProvider = ({children}) => {
     const [perPage, setPerPage] = useState(10);
     const [totalPages, setTotalPages] = useState(250);
 
-
     const axiosInstance = axios.create({
         headers: {
             "Accept": "application/json",
         },
     });
 
+    const showToast = (severity, summary, detail) => {
+        toastRef.current?.show({ severity, summary, detail, life: 9000 });
+      };
     
     const getCoinData = async (coinId) => {
         setCoinData();
@@ -33,6 +38,7 @@ export const CryptoProvider = ({children}) => {
             const response = await axiosInstance(`https://api.coingecko.com/api/v3/coins/${coinId}?localization=flase&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`);
             setCoinData(response.data)
         } catch (error) {
+            showToast('error', 'Error', 'You have exceeded the maximum requests per minute from CoinGecko. Please wait!')
             console.log('error', error)
         }
     };
@@ -40,15 +46,6 @@ export const CryptoProvider = ({children}) => {
     const getCryptoData = async () => {
         setCryptoData()
         setTotalPages(13942)
-        // try {
-            
-        //     const response = await axiosInstance(`
-        //     https://api.coingecko.com/api/v3/coins/list`);
-
-        //     setTotalPages(response.data.length)
-        // } catch (error) {
-        //     console.log('error', error)
-        // };
 
         try {
             
@@ -58,6 +55,7 @@ export const CryptoProvider = ({children}) => {
 
             setCryptoData(response.data)
         } catch (error) {
+            showToast('error', 'Error', 'You have exceeded the maximum requests per minute from CoinGecko. Please wait!')
             console.log('error', error)
         }
     };
@@ -71,6 +69,7 @@ export const CryptoProvider = ({children}) => {
             
             setSearchData(response.data.coins)
         } catch (error) {
+            showToast('error', 'Error', 'You have exceeded the maximum requests per minute from CoinGecko. Please wait!')
             console.log('error', error)
         }
     };
@@ -107,6 +106,7 @@ export const CryptoProvider = ({children}) => {
                 getCoinData
             }
         }>
+            <Toast ref={toastRef} position="bottom-center" className='p-0 text-sm'/>
             {children}
         </CryptoContext.Provider>
     )

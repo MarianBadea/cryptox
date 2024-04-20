@@ -14,10 +14,10 @@ export const Navigation = () => {
         end
         className={
             ({isActive}) => {
-                return `w-full h-auto flex items-center text-base lg:text-lg text-center font-nunito font-bold text-white
+                return `w-full h-auto flex items-center text-base lg:text-[20px] text-center font-nunito font-bold text-white
                 border-0 cursor-pointer rounded capitalize
                 ${isActive ? 'bg-gray-300 text-cyan' : 'bg-cyan'}
-                  hover:bg-gray-100  hover:text-cyan lg:py-1 lg:px-3 pl-6 py-1`
+                   hover:text-cyan lg:py-1 lg:px-3 pl-6 py-2`
             }
         }
     >
@@ -66,7 +66,7 @@ export const Navigation = () => {
   return (
     <Menubar
         className='bg-gray-300 flex justify-between w-full fixed z-10
-        font-nunito font-bold text-white text-base rounded-none gap-2
+        font-nunito font-bold text-white text-base rounded-none gap-2 px-2 lg:px-10
         '
         model={items}
         start={start}
