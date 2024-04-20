@@ -23,13 +23,13 @@ export const UnlockPage = () => {
         >
 
             <div 
-                className='w-[65%] md:w-[45%] h-[35%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative flex flex-col justify-between py-5'
+                className='w-[65%] md:w-[45%] min-h-min bg-gray-300 bg-opacity-75 rounded-lg text-white relative flex flex-col gap-10 py-5'
             >
-                <div className="flex justify-end px-2">
-                    <Button icon="pi pi-times" aria-label="Cancel"  onClick={() => navigate("/")}/>
+                <div className="flex justify-end items-center px-2">
+                    <Button className="p-0" icon="pi pi-times" aria-label="Cancel"  onClick={() => navigate("/")}/>
                 </div>
+                    <h2 className="flex items-center justify-center text-base lg:text-lg font-bold">Connect to a wallet:</h2>
                 <div className="flex flex-col justify-center items-center px-10">
-                    <h2 className="text-lg font-bold mb-4">Connect to a wallet:</h2>
                     <ExtensionLoginButton
                         className="w-full"
                         loginButtonText="DeFi Wallet"
