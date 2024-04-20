@@ -76,14 +76,14 @@ let { cryptoData, currency } = useContext(CryptoContext);
                                 <td className='py-4 flex items-center uppercase'>
                                     <span className="w-8 text-sm text-gray-100">{data.market_cap_rank}</span>
                                     <SaveBtn data={data}/> 
-                                    <img className='w-[1.5rem] h-[1.5rem] mx-1.5' src={data.image} alt={data.name} />
+                                    <img className='w-6 h-6 mx-1.5' src={data.image} alt={data.name} />
                                     <span>
                                         <Link to={`/${data.id}`} className='cursor-pointer'>
                                             {data.symbol}   
                                         </Link>
                                     </span>
                                 </td>        
-                                <td className='py-4'>
+                                <td className='py-4 text-sm md:text-base'>
                                     <Link to={`/${data.id}`} className='cursor-pointer'>
                                         {data.name}
                                     </Link>

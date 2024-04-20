@@ -46,11 +46,11 @@ export const Saved = () => {
 
   return (
     <section
-      className='w-[80%] h-full flex flex-col mt-28 mb-24 relative text-white'
+      className='w-[95%] lg:w-[80%] h-full flex flex-col mt-14 lg:mt-28 mb-24 relative text-white'
 
     >
         <div
-            className='w-full min-h-[60vh] p-8 border border-grey-100 rounded'
+            className='w-full min-h-[60vh] py-2 border border-grey-100 rounded'
         >
             {
               savedData ? 
