@@ -12,3 +12,10 @@
 .p-menubar .p-menuitem:not(.p-highlight):not(.p-disabled).p-focus > .p-menuitem-content{
     background-color: #212121;
 }
+
+.p-menubar .p-menubar-button:hover{
+    background: #000;
+}
+.p-menubar .p-menubar-button:hover{
+    box-shadow: #000 !important;
+}

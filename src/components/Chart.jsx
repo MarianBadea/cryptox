@@ -26,7 +26,7 @@ const ChartComponent = ({data, currency, type}) => {
     return (
         <ResponsiveContainer height={"90%"}>
             <LineChart width={400} height={400} data={data}>
-                <Line type="monotone" dataKey={type} stroke="#23f7dd" strokeWidth={"1px"} />
+                <Line type="monotone" dataKey={type} stroke="#2530F6" strokeWidth={"1px"} />
                 <CartesianGrid stroke="#323232" />
                 <XAxis dataKey="date" hide/>
                 <YAxis dataKey={type} hide domain={["auto", "auto"]}/>
@@ -54,7 +54,6 @@ useLayoutEffect(() => {
         try {
             
             const response = await axiosInstance(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily`);
-            console.log('response.data', response.data)
             
             let convertedData = response.data[type].map(item => {
                 return {
@@ -75,7 +74,7 @@ useLayoutEffect(() => {
 }, [id, type, days])
 
   return (
-    <div className='w-full h-[60%]'>
+    <div className='w-full h-[90%] lg:h-[60%]'>
         <ChartComponent 
             data={chartData}
             currency={currency}

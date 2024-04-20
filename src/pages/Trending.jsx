@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TrendingContext } from '../context/TrendingContext.js'
+import { TrendingContext } from '../context/TrendingContext.jsx'
 import { TrendingCoin } from '../components/TrendingCoin.jsx'
 import { Outlet } from 'react-router-dom'
 

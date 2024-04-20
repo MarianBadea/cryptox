@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import { CryptoContext } from '../context/CryptoContext'
 import { Pagination } from './Pagination';
 import { Link } from 'react-router-dom';
@@ -65,16 +65,17 @@ let { cryptoData, currency } = useContext(CryptoContext);
                         </tr>
                     </thead>
                     <tbody>
-                    {cryptoData.map( data => {
+                    {cryptoData.map( (data)  => {
                         return (
                             <tr key={data.id} 
                                     className='text-center text-base border-b border-gray-100 transition-all 
                                         duration-100 ease-in-out hover:bg-gray-200 hover:text-gray-900 hover:shadow-md
-                                        hover:scale-[1.03] last:border-b-0 text-white cursor-pointer 
+                                        lg:hover:scale-[1.03] last:border-b-0 text-white cursor-pointer 
                                     '
                             >
                                 <td className='py-4 flex items-center uppercase'>
-                                   <SaveBtn data={data}/> 
+                                    <span className="w-6 text-sm text-gray-100">{data.market_cap_rank}</span>
+                                    <SaveBtn data={data}/> 
                                     <img className='w-[1.5rem] h-[1.5rem] mx-1.5' src={data.image} alt={data.name} />
                                     <span>
                                         <Link to={`/${data.id}`} className='cursor-pointer'>

@@ -2,11 +2,12 @@ import React, { useContext, useRef } from 'react'
 import { Search } from './Search'
 import submitIcon from '../assets/submit-icon.svg'
 import { CryptoContext } from '../context/CryptoContext'
+import { Button } from 'primereact/button'
 
 export const Filters = () => {
 
   let { currency, setCurrency, setSortBy, resetFunction } = useContext(CryptoContext);
-  const currencyRef = useRef(null)
+  const currencyRef = useRef('usd')
 
   const handleCurrencySubmit = (e) => {
     e.preventDefault();
@@ -53,13 +54,14 @@ export const Filters = () => {
                 '
                 ref={currencyRef}
               />
-              <button type="submit">
+                
+              <Button type="submit">
                 <img
                   className='w-full h-auto'
                   src={submitIcon}
                   alt="submit"
                 />
-              </button>
+              </Button>
             </form>
           </div>
             <div className='flex'>

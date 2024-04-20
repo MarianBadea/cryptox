@@ -1,6 +1,7 @@
-import { createContext, useContext, useEffect, useLayoutEffect, useState } from "react";
+import { createContext, useContext, useEffect, useLayoutEffect, useState, useRef } from "react";
 import axios from 'axios';
 import { CryptoContext } from "./CryptoContext";
+import { Toast } from 'primereact/toast';
 
 //context object
 export const StorageContext = createContext({});
@@ -15,9 +16,15 @@ const axiosInstance = axios.create({
 });
 
 export const StorageProvider = ({children}) => {
+    const toastRef = useRef(null);
+
     const [allCoins, setAllCoins] = useState([]);
     const [savedData, setSavedData] = useState();
     let {currency, sortBy} = useContext(CryptoContext);
+
+    const showToast = (severity, summary, detail) => {
+        toastRef.current?.show({ severity, summary, detail, life: 9000 });
+      };
 
     const getSavedData = async (totalCoins = allCoins) => {
         try {
@@ -28,6 +35,7 @@ export const StorageProvider = ({children}) => {
 
             setSavedData(response.data)
         } catch (error) {
+            showToast('error', 'Error', 'You have exceeded the maximum requests per minute from CoinGecko. Please wait!')
             console.log('error', error)
         }
     };
@@ -99,6 +107,7 @@ export const StorageProvider = ({children}) => {
                 resetSavedData
             }
         }>
+            <Toast ref={toastRef} position="bottom-center" className='p-0 text-sm'/>
             {children}
         </StorageContext.Provider>
     )

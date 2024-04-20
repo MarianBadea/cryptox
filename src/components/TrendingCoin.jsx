@@ -10,16 +10,20 @@ export const TrendingCoin = ({data}) => {
 
   return (
     <div 
-        className='w-[40%] bg-gray-200 mb-12 last:mb-0 rounded-lg p-4 relative cursor-pointer hover:bg-gray-100 hover:bg-opacity-40'
+        className='w-full md:w-[70%] lg:w-[40%] bg-gray-200 mb-12 last:mb-0 rounded-lg p-4 relative cursor-pointer hover:bg-gray-100 hover:bg-opacity-40'
         onClick={() => getCoinDetails(data.id)}
     >
         {
             data ?
             <>
-                <h3 className='text-base flex items-center my-0.5 '>
-                    <span className='text-gray-100 capitalize'>name:&nbsp;</span>
-                    <span className='text-cyan'>{data.name}</span>
-                </h3> 
+                <div className='flex items-center justify-between'>
+                    <h3 className='text-base flex items-center my-0.5 '>
+                        <span className='text-gray-100 capitalize'>name:&nbsp;</span>
+                        <span className='text-cyan'>{data.name}</span>
+                    </h3> 
+                    
+                    <img className='w-[2.5rem] md:w-[3rem] lg:w-[4rem] h-auto rounded-full' src={data.large} alt={data.name} />
+                </div>
 
                 <h3 className='text-base flex items-center my-0.5 '>
                     <span className='text-gray-100 capitalize'>market cap rank:&nbsp;</span>
@@ -27,7 +31,7 @@ export const TrendingCoin = ({data}) => {
                 </h3> 
 
                 <h3 className='text-base flex items-center my-0.5 '>
-                    <span className='text-gray-100 capitalize'>price(in btc):&nbsp;</span>
+                    <span className='text-gray-100 capitalize'>price:&nbsp;</span>
                     <span className='text-cyan'>{
                         new Intl.NumberFormat('en-US', {
                             style: "currency",
@@ -42,8 +46,6 @@ export const TrendingCoin = ({data}) => {
                     <span className='text-cyan'>{data.score}</span>
                 </h3> 
 
-                
-                <img className='w-[20%] h-auto rounded-full absolute top-2/4 right-3 -translate-y-2/4' src={data.large} alt={data.name} />
 
             </>
             : 

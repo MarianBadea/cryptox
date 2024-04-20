@@ -1,10 +1,10 @@
-import React, { useContext, useLayoutEffect } from 'react'
+import React, { useContext, useLayoutEffect, useEffect } from 'react'
 import ReactDOM from 'react-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CryptoContext } from '../context/CryptoContext';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import { Chart } from './Chart';
+import { Button } from 'primereact/button';
 
 const HighLowIndicator = ({currentPrice, high, low}) => {
 
@@ -47,26 +47,29 @@ return  ReactDOM.createPortal (
         onClick={closeModal}
     >
         <div 
-        className='w-[65%] h-[75%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative'
+        className='w-[90%] md:w-[65%] h-[75%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative overflow-auto scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-200'
         onClick={(e) => e.stopPropagation()}
         >
         {
             data ? 
                 <div
-                    className='flex items-center justify-between h-full w-full p-4'
+                    className='flex flex-col lg:flex-row items-center justify-between h-full w-full p-4'
                 >
                     <div 
-                        className='flex flex-col w-[50%] h-full pr-2'
+                        className='flex flex-col w-full lg:w-[50%] h-full pr-2'
                     >
-                        <div className='flex w-full items-center'>
-                            <img src={data.image.large} alt={data.id}  className='w-[2.5rem] h-[2.5rem] mx-1.5'/>
-                            <h1 className='text-xl capitalize font-medium'>{data.name}</h1>
-                            <span 
-                                className='text-sm py-0.5 px-2.5 ml-2 bg-cyan 
-                                text-cyan bg-opacity-25 rounded uppercase'
-                            >
-                                {data.symbol}
-                            </span>
+                        <div className='flex w-full items-center justify-between'>
+                            <div className='flex items-center'>
+                                <img src={data.image.large} alt={data.id}  className='w-[2.5rem] h-[2.5rem] mx-1.5'/>
+                                <h1 className='text-xl capitalize font-medium'>{data.name}</h1>
+                                <span 
+                                    className='text-sm py-0.5 px-2.5 ml-2 bg-cyan 
+                                    text-cyan bg-opacity-25 rounded uppercase'
+                                >
+                                    {data.symbol}
+                                </span>
+                            </div>
+                            <Button className='felx lg:hidden' icon="pi pi-times" aria-label="Cancel"  onClick={() => navigate("..")}/>
                         </div>
 
                         <div className='flex w-full mt-6'>
@@ -278,9 +281,9 @@ return  ReactDOM.createPortal (
 
                     </div>
 
-                    <div className='flec flex-col w-[50%] h-full pl-3'>
+                    <div className='flec flex-col gap-2 w-full lg:w-[50%] h-96 lg:h-full pl-3'>
                         <Chart id={data.id}/>
-                        <div className='flex felx-col mt-4'>
+                        <div className='flex felx-col mt-4 gap-2'>
                                 <h3 className='text-white py-1'>
                                     <span className='capitalize text-gray-100 mr-1'>market cap rank</span> 
                                     {data.market_cap_rank}
@@ -288,7 +291,7 @@ return  ReactDOM.createPortal (
                         </div>
                     </div>
 
-                    <div className='absolute bottom-8 right-8 flex items-center'>
+                    <div className='lg:absolute lg:bottom-8 lg:right-8 flex flex-row items-center min-h-20'>
                         {
                             data.links.repos_url.github[0] &&
                             <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={data.links.repos_url.github[0]}>
@@ -332,7 +335,7 @@ return  ReactDOM.createPortal (
                         }
                         {
                             data.links.facebook_username &&
-                            <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={`https://x.com/${data.links.facebook_username}`}>
+                            <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={`https://facebook.com/${data.links.facebook_username}`}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="1em"

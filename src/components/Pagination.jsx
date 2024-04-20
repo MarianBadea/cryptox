@@ -19,7 +19,7 @@ const PerPage = () => {
               <select
               name="perpage"
               className='rounded bg-gray-200 text-base pl-2 py-0.5 leading-4 capitalize focus:outline-0'
-              onClick={handlePerPage}
+              onChange={handlePerPage}
               >
                 <option value="10">10</option>
                 <option value="50">50</option>
@@ -91,13 +91,13 @@ export const Pagination = () => {
                 }
                 {
                     (page - 1 !== 0) ?
-                    <li><button onClick={prev} className='outline-0 hover:text-cyan w-8 h-8 flex items-center justify-center bg-gray-200 mx-1.5 rounded-full'>{page - 1}</button></li>
+                    <li><button onClick={prev} className='outline-0 hover:text-cyan w-8 h-8 flex items-center justify-center mx-1.5 '>{page - 1}</button></li>
                     : null
                 }
-                <li><button disabled className='outline-0 w-8 h-8 flex items-center justify-center bg-cyan text-gray-200 mx-1.5 rounded-full'>{page}</button></li>
+                <li><button disabled className='outline-0 w-8 h-8 flex items-center justify-center text-cyan mx-1.5'>{page}</button></li>
                 {
                     (page + 1 !== TotalNumber && page !== TotalNumber)?
-                    <li><button onClick={next} className='outline-0 hover:text-cyan w-8 h-8 flex items-center justify-center bg-gray-200 mx-1.5 rounded-full'>{page + 1}</button></li>
+                    <li><button onClick={next} className='outline-0 hover:text-cyan w-8 h-8 flex items-center justify-center mx-1.5'>{page + 1}</button></li>
                     : null
                 }
                 {
@@ -107,7 +107,7 @@ export const Pagination = () => {
                 }
                 {
                     page !== TotalNumber ?
-                    <li><button onClick={() => setPage(TotalNumber)} className='outline-0 hover:text-cyan w-8 h-8 flex items-center justify-center bg-gray-200 mx-1.5 rounded-full'>{TotalNumber}</button></li>
+                    <li><button onClick={() => setPage(TotalNumber)} className='outline-0 hover:text-cyan w-8 h-8 flex items-center justify-center mx-1.5'>{TotalNumber}</button></li>
                     : null
                 }
                 <li>
