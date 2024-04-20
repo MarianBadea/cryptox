@@ -53,7 +53,7 @@ let { cryptoData, currency } = useContext(CryptoContext);
                     <thead className='capitalize text-base text-gray-100
                         font-medium border-b border-gray-100
                     '>
-                        <tr>
+                        <tr className='text-center text-base'>
                             <th className='py-1'>asset</th>        
                             <th className='py-1'>name</th>        
                             <th className='py-1'>price</th>        
@@ -74,7 +74,7 @@ let { cryptoData, currency } = useContext(CryptoContext);
                                     '
                             >
                                 <td className='py-4 flex items-center uppercase'>
-                                    <span className="w-6 text-sm text-gray-100">{data.market_cap_rank}</span>
+                                    <span className="w-8 text-sm text-gray-100">{data.market_cap_rank}</span>
                                     <SaveBtn data={data}/> 
                                     <img className='w-[1.5rem] h-[1.5rem] mx-1.5' src={data.image} alt={data.name} />
                                     <span>

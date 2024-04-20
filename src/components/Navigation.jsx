@@ -65,7 +65,7 @@ export const Navigation = () => {
       
   return (
     <Menubar
-        className='bg-gray-300 flex justify-between w-full fixed z-10
+        className='bg-gray-300 flex justify-between w-full z-10
         font-nunito font-bold text-white text-base rounded-none gap-2 px-2 lg:px-10
         '
         model={items}
