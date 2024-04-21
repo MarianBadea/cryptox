@@ -281,7 +281,7 @@ return  ReactDOM.createPortal (
 
                     </div>
 
-                    <div className='flec flex-col gap-2 w-full lg:w-[50%] h-96 lg:h-full pl-3'>
+                    <div className='flec flex-col gap-2 w-full lg:w-[50%] h-96 lg:h-full lg:pl-3'>
                         <Chart id={data.id}/>
                         <div className='flex felx-col mt-4 gap-2'>
                                 <h3 className='text-white py-1'>

@@ -81,7 +81,7 @@ useLayoutEffect(() => {
             type={type}
         />
         <div className='flex'>
-            <button className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize  ${type === 'prices'? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'} `} onClick={() => setType("prices")}>Price</button>
+            <button className={`text-sm py-0.5 px-1.5 bg-opacity-25 rounded capitalize  ${type === 'prices'? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'} `} onClick={() => setType("prices")}>Price</button>
             <button className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize  ${type === 'market_caps'? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'} `} onClick={() => setType("market_caps")}>Market Cap</button>
             <button className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize  ${type === 'total_volumes'? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'} `} onClick={() => setType("total_volumes")}>Total Volume</button>
 
