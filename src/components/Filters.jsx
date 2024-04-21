@@ -13,7 +13,7 @@ export const Filters = () => {
 
     let value = currencyRef.current.value;
 
-    setCurrency(value);
+    if(value){setCurrency(value)}
 
     currencyRef.current.value =''
   };
@@ -56,14 +56,13 @@ export const Filters = () => {
                 ref={currencyRef}
               />
                 
-              <Button className='pl-2 pr-4' size="small" type="submit" icon="pi pi-sign-in">
-              </Button>
+              <Button className='pl-2 pr-4' size="small" type="submit" icon="pi pi-sign-in" />
             </form>
             <label htmlFor="" className='relative flex justify-start items-center'>
                 <span className='sm:font-bold font-medium text-base min-w-max pr-2'>sort by: </span>
                 <select
                 name="sortby"
-                className='rounded bg-gray-200 text-base sm:font-bold pl-2 focus:outline-0 text-transparent capitalize leading-4 w-full sm:w-48 '
+                className='rounded bg-gray-200 text-sm sm:text-base sm:font-bold pl-2 focus:outline-0 text-transparent capitalize leading-4 w-full sm:w-48 '
                 onClick={handleSort}
                 >
                   <option className='sm:text-base text-sm' value="market_cap_desc">market cap desc</option>
