@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
-import searchIcon from '../assets/search-icon.svg'
 import { CryptoContext } from '../context/CryptoContext'
 import debounce from 'lodash.debounce';
+import { Button } from 'primereact/button';
 /// Am ramas la 2h
 const SearchInput = ({handleSearch}) => {
   const [searchText, setSearchText] = useState("");
@@ -30,7 +30,7 @@ const SearchInput = ({handleSearch}) => {
   return (
     <>
       <form 
-        className='lg:w-96 w-full relative flex items-center font-nunito'
+        className='lg:w-80 w-full relative flex items-center font-nunito'
         onSubmit={handleSubmit}
       >
         <input 
@@ -38,12 +38,15 @@ const SearchInput = ({handleSearch}) => {
           name='Search'
           onChange={handleInput}
           value={searchText}
-          className='w-full rounded bg-gray-200 placeholder:text-gray-100 pl-2 pr-6 py-1 required outline-0 border border-transparent focus:border-cyan' 
+          className='w-full rounded bg-gray-200 placeholder:text-gray-100 px-2  required outline-0 border border-transparent focus:border-cyan' 
           placeholder='Search...'
         />
-        <button type="submit" className='absolute right-1 cursor-pointer'>
-          <img src={searchIcon} alt="search" className='w-full h-auto'/>
-        </button>
+        <Button
+          type="submit"
+          size='small'
+          className='absolute right-1 cursor-pointer'
+          icon="pi pi-search"
+        />
       </form>
 
       {
