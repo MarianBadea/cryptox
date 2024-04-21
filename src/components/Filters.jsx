@@ -60,10 +60,10 @@ export const Filters = () => {
               </Button>
             </form>
             <label htmlFor="" className='relative flex justify-start items-center'>
-                <span className='sm:font-bold font-medium sm:text-base text-sm w-16'>sort by: </span>
+                <span className='sm:font-bold font-medium sm:text-base text-sm min-w-max pr-2'>sort by: </span>
                 <select
                 name="sortby"
-                className='rounded bg-gray-200 sm:text-base text-sm pl-2 py-1.5 focus:outline-0 text-transparent capitalize leading-4 w-full sm:w-48 '
+                className='rounded bg-gray-200 sm:text-base sm:font-bold text-sm pl-2 py-1.5 focus:outline-0 text-transparent capitalize leading-4 w-full sm:w-48 '
                 onClick={handleSort}
                 >
                   <option className='sm:text-base text-sm' value="market_cap_desc">market cap desc</option>
