@@ -6,7 +6,7 @@ export const Logo = () => {
     <Link 
         className='
             [text-decoration:none]
-            text-lg
+            text-xl
             text-cyan
             flex 
             items-center
@@ -21,13 +21,13 @@ export const Logo = () => {
               xmlns="http://www.w3.org/2000/svg"
               width="14px" 
               height="14px" 
-              fill="#2530F6"
+              fill="#fff"
               viewBox="0 0 35 25" 
               className="logo-svg flex-shrink-0 d-none d-sm-block"
             >
               <g clipPath="url(#a)">
                 <path
-                  fill="#2530F6"
+                  fill="#fff"
                   d="m16.603 12.7 12.84-6.771-2.16-4.096-11.756 4.694a1.265 1.265 0 0 1-.941 0L2.826 1.833.667 5.929l12.84 6.772L.667 19.47l2.159 4.096 11.757-4.695c.302-.12.638-.12.94 0l11.758 4.695 2.158-4.096-12.84-6.772.004.003Z"
                 />
               </g>

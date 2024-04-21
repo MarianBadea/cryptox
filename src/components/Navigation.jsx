@@ -14,7 +14,7 @@ export const Navigation = () => {
         end
         className={
             ({isActive}) => {
-                return `w-full h-auto flex items-center text-base lg:text-[20px] text-center font-nunito font-bold text-white
+                return `w-full h-auto flex items-center text-[20px] text-center font-nunito font-bold text-white
                 border-0 cursor-pointer rounded capitalize
                 ${isActive ? 'bg-gray-300 text-cyan' : 'bg-cyan'}
                    hover:text-cyan lg:py-1 lg:px-3 pl-6 py-2`
