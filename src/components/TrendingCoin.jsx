@@ -22,7 +22,7 @@ export const TrendingCoin = ({data}) => {
                         <span className='text-cyan'>{data.name}</span>
                     </h3> 
                     
-                    <img className='w-[2.5rem] md:w-[3rem] lg:w-[4rem] h-auto rounded-full' src={data.large} alt={data.name} />
+                    <img className='w-[3rem] lg:w-[4rem] h-auto rounded-full' src={data.large} alt={data.name} />
                 </div>
 
                 <h3 className='text-base flex items-center my-0.5 '>

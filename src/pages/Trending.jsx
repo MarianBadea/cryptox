@@ -8,11 +8,11 @@ export const Trending = () => {
 
   return (
     <section
-      className='w-[80%] h-full flex flex-col mt-14 lg:mt-28 mb-24 relative text-white'
+      className='w-[95%] md:w-[80%] h-full flex flex-col mt-14 lg:mt-28 mb-24 relative text-white'
 
     >
         <div
-            className='flex flex-wrap justify-evenly w-full min-h-[60vh] py-8 border border-grey-100 rounded'
+            className='flex flex-wrap justify-evenly w-full min-h-[60vh] py-8 px-4 border border-grey-100 rounded'
         >
             {
               trendData && 
