@@ -63,7 +63,7 @@ export const Filters = () => {
                 <select
                 name="sortby"
                 className='rounded bg-gray-200 text-sm sm:text-base sm:font-bold pl-2 focus:outline-0 text-transparent capitalize leading-4 w-full sm:w-48 '
-                onClick={handleSort}
+                onChange={handleSort}
                 >
                   <option className='sm:text-base text-sm' value="market_cap_desc">market cap desc</option>
                   <option className='sm:text-base text-sm' value="market_cap_asc">market cap asc</option>
