@@ -47,17 +47,30 @@ const formatMarketCap = (number) => {
     if (number < 1e6) {
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
-            currency: 'USD',
+            currency: currency,
+            maximumSignificantDigits: 2,
         }).format(number);
     } else if (number < 1e9) {
         let millionValue = (number / 1e6).toFixed(1);
-        return `$${millionValue} M`;
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: 1,
+        }).format(millionValue) + ' M';
     } else if (number > 1e12) {
         let trillionValue = (number / 1e12).toFixed(1);
-        return `$${trillionValue} T`;
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: 1,
+        }).format(trillionValue) + ' T';
     } else {
         let billionValue = (number / 1e9).toFixed(1);
-        return `$${billionValue} B`;
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: 1,
+        }).format(billionValue) + ' B';
     }
 }
 
