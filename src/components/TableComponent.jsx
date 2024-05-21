@@ -23,7 +23,7 @@ const SaveBtn = ({data}) => {
             onClick={handleSaveCoin}
         >
         <svg 
-            className={`w-[1.5rem] ml-1.5  ${allCoins.includes(data.id) ? 'fill-cyan' : 'text-gray-100'}`}
+            className={`w-[1.5rem]  ${allCoins.includes(data.id) ? 'fill-cyan' : 'text-gray-100'}`}
             width="30"
             height="30" viewBox="0 0 30 30" fill="#808080" xmlns="http://www.w3.org/2000/svg"
         >
@@ -43,6 +43,24 @@ const SaveBtn = ({data}) => {
 export const TableComponent = () => {
 let { cryptoData, currency } = useContext(CryptoContext);
 
+const formatMarketCap = (number) => {
+    if (number < 1e6) {
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        }).format(number);
+    } else if (number < 1e9) {
+        let millionValue = (number / 1e6).toFixed(1);
+        return `$${millionValue} M`;
+    } else if (number > 1e12) {
+        let trillionValue = (number / 1e12).toFixed(1);
+        return `$${trillionValue} T`;
+    } else {
+        let billionValue = (number / 1e9).toFixed(1);
+        return `$${billionValue} B`;
+    }
+}
+
   return (
     <>
         <div
@@ -54,8 +72,8 @@ let { cryptoData, currency } = useContext(CryptoContext);
                         font-medium border-b border-gray-100
                     '>
                         <tr className='text-center text-base'>
-                            <th className='py-1'>asset</th>        
-                            <th className='py-1'>name</th>        
+                            <th className='py-1 pr-20 md:pr-0'>asset</th>        
+                            <th className='md:py-4 hidden md:table-cell'>name</th>        
                             <th className='py-1'>price</th>        
                             <th className='md:py-4 hidden md:table-cell'>total volume</th>        
                             <th className='md:py-4 hidden md:table-cell'>market cap change</th>        
@@ -73,17 +91,21 @@ let { cryptoData, currency } = useContext(CryptoContext);
                                         lg:hover:scale-[1.03] last:border-b-0 text-white cursor-pointer 
                                     '
                             >
-                                <td className='py-4 flex items-center uppercase'>
+                                <td className='py-4 flex justify-start items-center uppercase'>
                                     <span className="w-8 text-sm text-gray-100">{data.market_cap_rank}</span>
+
                                     <SaveBtn data={data}/> 
-                                    <img className='w-6 h-6 mx-1.5' src={data.image} alt={data.name} />
+                                    <span className='w-8 flex justify-center'>
+                                        <img className='h-6 mx-1.5' src={data.image} alt={data.name} />
+                                    </span>
                                     <span>
-                                        <Link to={`/${data.id}`} className='cursor-pointer'>
-                                            {data.symbol}   
+                                        <Link to={`/${data.id}`} className='cursor-pointer felx flex-col text-start'>
+                                            <p className='text-base md:text-sm'>{data.symbol} </p>  
+                                            <p className='text-xs text-gray-50 font-bold md:hidden'>{formatMarketCap(data.market_cap)}</p>
                                         </Link>
                                     </span>
                                 </td>        
-                                <td className='py-4 text-sm md:text-base'>
+                                <td className='md:py-4 hidden md:table-cell text-sm md:text-base'>
                                     <Link to={`/${data.id}`} className='cursor-pointer'>
                                         {data.name}
                                     </Link>

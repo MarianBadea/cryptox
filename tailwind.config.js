@@ -8,13 +8,14 @@ module.exports = {
       fontFamily: { nunito: 'Nunito'},
     },
     colors: {
-      gray: { 100: "#808080", 200: "#323232", 300: "#212121" },
+      gray: { 50: "#7d889e", 100: "#808080", 200: "#323232", 300: "#212121" },
       white: "#fff",
       cyan: "#1b46c2",
       red: "#d6436e",
       green: "#25da72",  
     },
     fontSize: {
+      xs: "10px",
       sm: "14px",
       md: "18px",
       lg: "24px",

@@ -21,12 +21,9 @@ const PerPage = () => {
               className='rounded bg-gray-200 text-base pl-2 py-0.5 leading-4 capitalize focus:outline-0'
               onChange={handlePerPage}
               >
-                <option value="10">10</option>
                 <option value="50">50</option>
                 <option value="100">100</option>
-                <option value="200">150</option>
                 <option value="300">200</option>
-                <option value="500">250</option>
               </select>
             </label>
     )
