@@ -4,8 +4,7 @@ import { StorageContext } from '../context/StorageContext.jsx'
 import { CryptoContext } from '../context/CryptoContext.jsx'
 
 const SaveBtn = ({data}) => {
-  const {saveCoin, allCoins, removeCoin} = useContext(StorageContext)
-  console.log('allCoins', allCoins)
+  const {saveCoin, allCoins, removeCoin} = useContext(StorageContext);
 
   const handleSaveCoin = (e) => {
       e.preventDefault()

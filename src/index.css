@@ -19,3 +19,8 @@
 .p-menubar .p-menubar-button:hover{
     box-shadow: #000 !important;
 }
+.p-menubar .p-menubar-button:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: unset !important;
+}

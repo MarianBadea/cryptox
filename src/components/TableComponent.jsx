@@ -132,7 +132,7 @@ const formatMarketCap = (number) => {
                                 <td className='md:py-4 hidden md:table-cell'>{
                                     new Intl.NumberFormat('en-US', {
                                         style: "currency",
-                                        currency: "usd"
+                                        currency: currency
                                     }).format(data.total_volume)
                                 }</td>        
                                 <td className='md:py-4 hidden md:table-cell'>{Number(data.market_cap_change_percentage_24h).toFixed(2)}%</td>        
